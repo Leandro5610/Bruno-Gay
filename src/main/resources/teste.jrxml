@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a12f1255-3a71-4bd2-9dfa-ac02eae5e0c0">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="senha" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="195" y="19" width="100" height="30" uuid="505fd8aa-bebf-4557-972a-9970e7e503ad"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="26" width="100" height="30" uuid="0822b047-d6bf-4ff5-9b5f-207e90d525eb"/>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="068eba13-8b36-46af-bbf3-f146593df364">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fa2dc307-24fe-474c-a136-bbaa43b14f14"/>
+				</reportElement>
+				<text><![CDATA[senha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="132" splitType="Stretch">
+			<textField>
+				<reportElement x="159" y="18" width="100" height="30" uuid="0e0bb8d6-0427-44c6-ae0b-596cd0e51fca"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="38" width="100" height="30" uuid="4dbaf63d-5806-479f-b993-e7fe1a8b8784"/>
+				<textFieldExpression><![CDATA[$F{nome}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="517" y="82" width="50" height="50" uuid="2eea9088-b377-47a3-9eb1-4a33e129b4f0"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+	new com.google.zxing.qrcode.QRCodeWriter().encode(
+		$F{senha},$F{nome} ,com.google.zxing.BarcodeFormat.QR_CODE, 300, 300
+	)
+)]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="160" y="89" width="100" height="30" uuid="0394935d-237b-481c-aa95-f9040d1bf253">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fa2dc307-24fe-474c-a136-bbaa43b14f14"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{senha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
